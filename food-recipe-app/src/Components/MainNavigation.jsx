@@ -1,10 +1,15 @@
 import React from 'react';
+import Navbar from './Navbar';
+import { Outlet } from 'react-router-dom';
+import Footer from './Footer';
 
 const MainNavigation = () => {
   return (
-    <div>
-      MainNavigation
-    </div>
+    <>
+      <Navbar/>
+      <Outlet />
+      <Footer />
+    </>
   )
 }
 
