@@ -1,6 +1,6 @@
 import React from "react";
 import foodRecipe from "../assets/foodRecipe.png";
-import Recipeitems from "./Recipeitems";
+import Recipeitems from "../Components/Recipeitems";
 // import Navbar from "../Components/Navbar";
 // import Footer from "../Components/Footer";
 

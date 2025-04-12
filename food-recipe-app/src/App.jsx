@@ -29,7 +29,9 @@ function App() {
     {
       path: "/", element: <MainNavigation />,
       errorElement: <div>Something went wrong. Please try again later.</div>, children: [
-        { path: "/", element: <Home />, loader: getAllRecipes }
+        { path: "/", element: <Home />, loader: getAllRecipes },
+        { path: "/myRecipe", element: <Home />},
+        { path: "/favRecipe", element: <Home />}
       ]
     },
     // { path: "/", element: <Home /> },      // errorElement: <div>Oops! Page not found.</div>, // Optional but recommended
