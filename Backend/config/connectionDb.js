@@ -9,7 +9,7 @@ const mongoose = require("mongoose");
 
 const connectDb = async () => {
     try {
-        await mongoose.connect(process.env.CONNECTION_STRING);
+        await mongoose.connect(process.env.CONNECTION_STRING1);
         console.log("Connected...");
     } catch (error) {
         console.error("Connection error:", error);

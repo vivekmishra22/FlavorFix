@@ -1,23 +1,34 @@
 import React from "react";
 import foodRecipe from "../assets/foodRecipe.png";
 import Recipeitems from "../Components/Recipeitems";
+import { useNavigate } from "react-router-dom";
 // import Navbar from "../Components/Navbar";
 // import Footer from "../Components/Footer";
 
 const Home = () => {
+
+  const navigate = useNavigate()
+  
   return (
     <>
       {/* <Navbar/> */}
       <section className="home">
         <div className="left">
-          <h1>Food Recipe</h1>
+          <h2>FlavorFix – Cook. Taste. Share.</h2>
+          {/* <h1>Food Recipe</h1> */}
           <h5>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo
+            Unleash your inner chef with FlavorFix! Explore thousands of
+            easy-to-follow recipes, save your favorites, and even share your own
+            delicious creations. Whether you're craving quick meals or gourmet
+            dishes, our app brings inspiration to your kitchen. <br />
+            - Get step-by-step guides, smart meal planning, and personalized recommendations. <br />
+            - Discover thousands of chef-curated recipes tailored to your taste, diet, and skill level.
+            {/* Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo
             vel voluptates assumenda amet minima, aperiam, nesciunt, dolor totam
             accusantium odit similique minus esse dolores saepe cumque quia
-            perferendis quaerat numquam
+            perferendis quaerat numquam */}
           </h5>
-          <button>Share your recipe</button>
+          <button onClick={ ()=> navigate("/addRecipe")}>Share your recipe</button>
         </div>
 
         <div className="right">

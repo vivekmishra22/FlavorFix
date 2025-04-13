@@ -3,6 +3,7 @@ import './App.css';
 import Home from './Pages/Home';
 import MainNavigation from './Components/MainNavigation';
 import axios from 'axios';
+import AddFoodRecipe from './Pages/AddFoodRecipe';
 
 function App() {
 
@@ -31,7 +32,8 @@ function App() {
       errorElement: <div>Something went wrong. Please try again later.</div>, children: [
         { path: "/", element: <Home />, loader: getAllRecipes },
         { path: "/myRecipe", element: <Home />},
-        { path: "/favRecipe", element: <Home />}
+        { path: "/favRecipe", element: <Home />},
+        { path: "/addRecipe", element: <AddFoodRecipe />}
       ]
     },
     // { path: "/", element: <Home /> },      // errorElement: <div>Oops! Page not found.</div>, // Optional but recommended
