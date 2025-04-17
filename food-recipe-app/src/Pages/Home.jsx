@@ -1,13 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import foodRecipe from "../assets/foodRecipe.png";
 import Recipeitems from "../Components/Recipeitems";
 import { useNavigate } from "react-router-dom";
+import Modal from "../Components/Modal";
+import InputForm from "../Components/InputForm";
 // import Navbar from "../Components/Navbar";
 // import Footer from "../Components/Footer";
 
 const Home = () => {
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const [ isOpen, setIsOpen ] = useState(false)
+
+  const addRecipe=()=> {
+    let token = localStorage.getItem("token")
+    if(token){
+      navigate("/addRecipe")
+    } else {
+      setIsOpen(true)
+    }
+  }
   
   return (
     <>
@@ -23,12 +35,8 @@ const Home = () => {
             dishes, our app brings inspiration to your kitchen. <br />
             - Get step-by-step guides, smart meal planning, and personalized recommendations. <br />
             - Discover thousands of chef-curated recipes tailored to your taste, diet, and skill level.
-            {/* Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo
-            vel voluptates assumenda amet minima, aperiam, nesciunt, dolor totam
-            accusantium odit similique minus esse dolores saepe cumque quia
-            perferendis quaerat numquam */}
           </h5>
-          <button onClick={ ()=> navigate("/addRecipe")}>Share your recipe</button>
+          <button onClick={ addRecipe }>Share your recipe</button>
         </div>
 
         <div className="right">
@@ -46,6 +54,8 @@ const Home = () => {
         </svg>
       </div>
       {/* <Footer /> */}
+
+      {(isOpen) && <Modal onClose={() => setIsOpen(false)} > <InputForm setIsOpen={() => setIsOpen(false)} /> </Modal>}
 
       <div className="recipe">
         <Recipeitems />

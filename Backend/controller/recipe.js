@@ -27,7 +27,8 @@ const getRecipe = async(req,res)=>{
 }
 
 const addRecipe = async(req,res)=>{
-    console.log(req.file) // for multer
+    // console.log(req.file) // for multer
+    console.log(req.user) // for multer with Authorization
     const { title, ingredients, instructions, time}=req.body;
 
     if( !title || !ingredients || !instructions){
@@ -35,7 +36,8 @@ const addRecipe = async(req,res)=>{
     }
 
     const newRecipe = await Recipe.create({
-        title, ingredients, instructions, time, coverImage :req.file.filename
+        title, ingredients, instructions, time, coverImage :req.file.filename,
+        createdBy : req.user.id
     })
 
     return res.json(newRecipe)
