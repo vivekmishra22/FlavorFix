@@ -49,7 +49,10 @@ const editRecipe = async(req,res)=>{
     let recipe = await Recipe.findById(req.params.id)
     try {
         if(recipe){
-            await Recipe.findByIdAndUpdate(req.params.id,req.body,{new:true})
+            let coverImage = req.file ?. filename ?req.file?.filename : recipe.coverImage
+            // await Recipe.findByIdAndUpdate(req.params.id,req.body,{new:true})
+            // await Recipe.findByIdAndUpdate(req.params.id,{...req.body, coverImage:req.file.filename},{new:true})
+            await Recipe.findByIdAndUpdate(req.params.id,{...req.body, coverImage},{new:true})
             res.json({title, ingredients, instructions, time})
         }
     } catch (err) {
@@ -57,8 +60,13 @@ const editRecipe = async(req,res)=>{
     }
 }
 
-const deleteRecipe = (req,res)=>{
-    res.json({message:"Delete Recipes"})
+const deleteRecipe = async(req,res)=>{
+    try {
+        await Recipe.deleteOne({_id:req.params.id})
+        res.json({status:"ok"});
+    } catch {
+        return res.status(400).json({message:"error"});
+    }
 }
 
 
