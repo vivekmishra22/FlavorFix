@@ -1,292 +1,387 @@
+/* Import Poppins font family from Google Fonts with all weight variants */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+/* Universal reset for all elements */
 * {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+  padding: 0;          /* Remove default padding */
+  margin: 0;           /* Remove default margin */
+  box-sizing: border-box; /* Include padding/border in element's total width/height */
+  font-family: "Poppins", sans-serif; /* Set default font */
 }
 
+/* Header styling */
 header {
-  width: 100vw;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 1px 0 5px rgba(0, 0, 0, 0.2);
-  position: fixed;
-  top:0;
-  z-index: 10;
-  background-color: #ffffff;
+  width: 100vw;        /* Full viewport width */
+  display: flex;        /* Flex layout */
+  justify-content: space-between; /* Space between logo and nav */
+  align-items: center;  /* Center items vertically */
+  box-shadow: 1px 0 5px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  position: fixed;      /* Fixed position at top */
+  top: 0;               /* Stick to top */
+  z-index: 10;          /* Ensure header stays above other content */
+  background-color: #ffffff; /* White background */
+  padding: 0 1rem;      /* Horizontal padding */
 }
 
-header ul{
-  width: 40%;
-  height: 50px;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
+/* Mobile menu toggle button (hidden by default) */
+.menu-toggle {
+  display: none;        /* Hidden on desktop */
+  font-size: 24px;      /* Icon size */
+  cursor: pointer;      /* Pointer cursor on hover */
 }
 
-header ul li{
-  list-style: none;
-  cursor: pointer;
+/* Navigation list */
+header ul {
+  width: 40%;          /* Takes 40% of header width */
+  height: 50px;        /* Fixed height */
+  display: flex;       /* Flex layout */
+  justify-content: space-evenly; /* Even space between items */
+  align-items: center; /* Center items vertically */
 }
 
-li a{
-  color: black;
-  transition: all 0.3s;
-  padding:2px 10px;
-  border-radius: 10px;
+/* Navigation list items */
+header ul li {
+  list-style: none;    /* Remove bullet points */
+  cursor: pointer;     /* Pointer cursor on hover */
 }
 
-li a:hover{
-  color:black;
+/* Navigation links */
+li a {
+  color: black;        /* Default text color */
+  transition: all 0.3s; /* Smooth transition for hover effects */
+  padding: 2px 10px;   /* Padding around text */
+  border-radius: 10px; /* Rounded corners */
+  text-decoration: none; /* Remove underline */
 }
 
-li .login{
-  font-size: 16px;
-  font-weight: 500;
+/* Navigation link hover state */
+li a:hover {
+  color: white;        /* White text on hover */
+  background-color: #2c4860; /* Dark blue background on hover */
 }
 
-header h2{
-  margin-left: 1rem;
+/* Special styling for login link */
+li .login {
+  font-size: 16px;     /* Slightly larger font */
+  font-weight: 500;    /* Medium weight */
 }
 
-section{
-  height: 100vh;
-  width: 90%;
-  margin: 0 auto;
+/* Logo/header title */
+header h2 {
+  margin-left: 1rem;   /* Left margin */
 }
 
-.home{
-  display: flex;
-  margin-top: 6rem;
-  gap:10rem;
-  position: relative;
+/* Section defaults */
+section {
+  height: 100vh;       /* Full viewport height */
+  width: 90%;          /* 90% of parent width */
+  margin: 0 auto;      /* Centered horizontally */
 }
 
-.home .left h1{
-  margin-bottom: 1rem;
+/* Home section layout */
+.home {
+  display: flex;       /* Flex layout */
+  margin-top: 6rem;    /* Space below fixed header */
+  gap: 10rem;          /* Large gap between columns */
+  position: relative;  /* For absolute positioning of children */
 }
 
-.home button{
-  color: white;
-  border:none;
-  background-color: #213547;
-  width: 200px;
-  padding: 0.5rem;
-  border-radius: 0;
+/* Home section heading */
+.home .left h1 {
+  margin-bottom: 1rem; /* Space below heading */
 }
 
-.home a:hover{
-  color: white;
-  background-color: #2c4860;
+/* Home section button */
+.home button {
+  color: white;        /* Text color */
+  border: none;        /* No border */
+  background-color: #213547; /* Dark blue background */
+  width: 200px;        /* Fixed width */
+  padding: 0.5rem;     /* Vertical padding */
+  border-radius: 6px;  /* Slightly rounded corners */
+  transition: background-color 0.3s ease; /* Color transition */
 }
 
-.home .left h5{
-  margin:2rem 0;
+/* Home button hover state */
+.home button:hover {
+  background-color: #2c4860; /* Darker blue on hover */
 }
 
-.bg svg{
-  position: absolute;
-  bottom: 0;
+/* Home section subtitle */
+.home .left h5 {
+  margin: 2rem 0;      /* Vertical margin */
 }
 
-.card-container{
-  width: 80%;
-  margin: auto;
-  display: grid;
-  gap:2.5rem;
-  grid-template-columns: repeat(auto-fit,13rem);
-  cursor:pointer
+/* Background SVG positioning */
+.bg svg {
+  position: absolute;  /* Absolute position within home section */
+  bottom: 0;           /* Align to bottom */
 }
 
-.card{
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
-  text-align: center;
-  border-radius: 5px;
+/* Recipe cards container */
+.card-container {
+  width: 80%;          /* 80% of parent width */
+  margin: auto;        /* Centered horizontally */
+  display: grid;       /* Grid layout */
+  gap: 2.5rem;        /* Space between cards */
+  grid-template-columns: repeat(auto-fit, 13rem); /* Responsive columns */
+  cursor: pointer;     /* Pointer cursor */
 }
 
-.card-body{
-  background-color: #d4f6e8;
-  padding: 1rem;
+/* Individual card styling */
+.card {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); /* Shadow effect */
+  text-align: center;  /* Center content */
+  border-radius: 5px;   /* Slightly rounded corners */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hover animations */
 }
 
-.card-body .title{
-  margin-bottom:5px;
-  font-size: 15px;
-  font-weight:500;
+/* Card hover effect */
+.card:hover {
+  transform: translateY(-5px); /* Lift up slightly */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
 }
 
-.card-body .icons{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+/* Card content area */
+.card-body {
+  background-color: #d4f6e8; /* Light green background */
+  padding: 1rem;       /* Padding inside card */
 }
 
-.card-body .timer{
-  display: flex;
-  align-items: center;
-  gap:2px;
-  font-size: 13px;
-  font-weight: 500;
+/* Card title */
+.card-body .title {
+  margin-bottom: 5px;  /* Space below title */
+  font-size: 15px;     /* Font size */
+  font-weight: 500;    /* Medium weight */
 }
 
-.action{
-  display: flex;
-  font-size: 19px;
-  justify-content: space-between;
-  align-items: center;
-  width: 45px;
+/* Icons container in card */
+.card-body .icons {
+  display: flex;       /* Flex layout */
+  justify-content: space-between; /* Space between items */
+  align-items: center; /* Center vertically */
 }
 
-.editIcon{
-  color: black;
-  font-size: 18px;
+/* Timer display */
+.card-body .timer {
+  display: flex;       /* Flex layout */
+  align-items: center; /* Center vertically */
+  gap: 2px;           /* Small gap between icon and text */
+  font-size: 13px;    /* Small font */
+  font-weight: 500;   /* Medium weight */
 }
 
-.action a:hover{
-  color: black;
+/* Action buttons container */
+.action {
+  display: flex;       /* Flex layout */
+  font-size: 19px;     /* Icon size */
+  justify-content: space-between; /* Space between icons */
+  align-items: center; /* Center vertically */
+  width: 45px;        /* Fixed width */
 }
 
-.deleteIcon{
-  color: rgb(239,53,53);
-  font-size: 20px;
-  cursor: pointer;
+/* Edit icon */
+.editIcon {
+  color: black;       /* Black color */
+  font-size: 18px;    /* Slightly smaller than container */
 }
 
-.modal{
-  position: fixed;
-  top: 34%;
-  z-index: 10;
-  padding: 2rem;
-  border-radius: 6px;
-  border:none;
-  left:30%;
-  width: 40%;
+/* Action link hover */
+.action a:hover {
+  color: black;       /* Maintain black color */
 }
 
-.backdrop{
-  position: fixed;
-  top:0;
+/* Delete icon */
+.deleteIcon {
+  color: rgb(239, 53, 53); /* Red color */
+  font-size: 20px;    /* Slightly larger */
+  cursor: pointer;    /* Pointer cursor */
+}
+
+/* Modal dialog */
+.modal {
+  position: fixed;    /* Fixed position */
+  top: 34%;           /* Position from top */
+  z-index: 10;        /* Above other content */
+  padding: 2rem;      /* Inner spacing */
+  border-radius: 6px; /* Rounded corners */
+  border: none;       /* No border */
+  left: 30%;          /* Position from left */
+  width: 40%;         /* Width of modal */
+  background-color: white; /* White background */
+}
+
+
+/* Modal backdrop */
+.backdrop {
+  position: fixed;    /* Cover entire viewport */
+  top: 0;
   left: 0;
   width: 100%;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.75);
-  z-index: 9;
+  background-color: rgba(0, 0, 0, 0.75); /* Semi-transparent black */
+  animation: fadeIn 0.3s ease-in-out;
+  z-index: 9;         /* Below modal but above other content */
 }
 
-.form{
-  width: 71%;
-  margin: 0 auto;
-  text-align: center;
+/* Form container */
+.form {
+  width: 71%;         /* 71% of parent width */
+  margin: 0 auto;     /* Centered */
+  text-align: center; /* Center content */
 }
 
-.form-header{
-  background-color: #d4f6e8;
-  height: 3px;
-  text-align: center;
+/* Form header decoration */
+.form-header {
+  background-color: #d4f6e8; /* Light green */
+  height: 3px;       /* Thin line */
 }
 
-.form-control{
-  display: flex;
-  justify-content: space-between;
-  gap:1rem;
-  margin-top: 1rem;
+/* Form control group */
+.form-control {
+  display: flex;      /* Flex layout */
+  justify-content: space-between; /* Space between label and input */
+  gap: 1rem;         /* Gap between items */
+  margin-top: 1rem;  /* Space above each control */
 }
 
-.form-control .input{
-  flex-basis: 70%;
-  border:1px solid rgb(156 163 175);
-  border-radius: 4px;
-  height: 30px;
-  padding: 2px;
+/* Form inputs */
+.form-control .input,
+.form-control .input-textarea {
+  flex-basis: 70%;   /* Takes 70% of available space */
+  border: 1px solid rgb(156 163 175); /* Gray border */
+  border-radius: 4px; /* Slightly rounded */
+  height: 30px;      /* Fixed height */
+  padding: 2px;      /* Small padding */
 }
 
-.form-control .input-textarea{
-  border: 1px solid rgb(156 163 175);
-  border-radius: 4px;
-  flex-basis: 70%;
-  padding: 2px;
+/* Textarea specific */
+.form-control .input-textarea {
+  height: auto;      /* Auto height for multi-line */
 }
 
-.form button{
-  margin:2rem 0;
-  border:none;
-  background-color: #d4f6e8;
-  font-size: 14px;
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+/* Form button */
+.form button {
+  margin: 2rem 0;    /* Vertical margin */
+  border: none;      /* No border */
+  background-color: #d4f6e8; /* Light green */
+  font-size: 14px;  /* Font size */
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3); /* Shadow */
+  padding: 0.5rem 1rem; /* Padding */
+  border-radius: 4px; /* Rounded corners */
+  transition: background-color 0.3s; /* Color transition */
 }
 
-.form p{
-  cursor: pointer;
-  display: inline;
-  border-bottom: 1px solid #307bbd;
-  color:rga(4,136,170);
-  font-size: 14px;
-  color: #307bbd;
+/* Form button hover */
+.form button:hover {
+  background-color: #c1e7d8; /* Slightly darker green */
 }
 
-.form .error{
-  color:red;
-  font-size: 13px;
-}
-.container{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100vw;
-  height: 100vh;
+/* Form paragraph/link */
+.form p {
+  cursor: pointer;   /* Pointer cursor */
+  display: inline;   /* Inline display */
+  border-bottom: 1px solid #307bbd; /* Underline effect */
+  color: #307bbd;    /* Blue color */
+  font-size: 14px;   /* Font size */
 }
 
-.add-recipe{
-  width: 100%;
+/* Form error message */
+.form .error {
+  color: red;       /* Red for errors */
+  font-size: 13px;  /* Small font */
 }
 
-.recipe{
-  margin-bottom: 2rem;
-  padding-bottom: 2rem;
+/* Centered container */
+.container {
+  display: flex;     /* Flex layout */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  width: 100vw;      /* Full viewport width */
+  height: 100vh;     /* Full viewport height */
 }
 
-.footer{
-  width:100vw;
-  height: 30px;
-  color: white;
-  background-color: #213547;
-  position: fixed;
-  bottom: 0;
-  text-align: center;
-  margin-top: 1rem;
-  padding-top: 2px;
-  font-size: 14px;
+/* Add recipe section */
+.add-recipe {
+  width: 100%;       /* Full width */
 }
 
-.outer-container{
-  width: 70%;
-  margin: 5rem auto;
+/* Recipe section */
+.recipe {
+  margin-bottom: 2rem; /* Space below */
+  padding-bottom: 2rem; /* Space inside */
 }
 
-.outer-container .profile{
-  display: flex;
-  gap:1rem;
-  align-items: center;
+/* Footer */
+.footer {
+  width: 100vw;      /* Full viewport width */
+  height: 30px;      /* Fixed height */
+  color: white;      /* White text */
+  background-color: #213547; /* Dark blue */
+  position: fixed;   /* Fixed at bottom */
+  bottom: 0;         /* Stick to bottom */
+  text-align: center; /* Center text */
+  padding-top: 2px;  /* Small top padding */
+  font-size: 14px;   /* Font size */
 }
 
-.outer-container .title{
-  margin: 1rem 0;
-  text-transform: uppercase;
+/* Outer container for recipe details */
+.outer-container {
+  width: 70%;        /* 70% of parent */
+  margin: 5rem auto;  /* Centered with top margin */
 }
 
-.outer-container .recipe-details{
-  display: flex;
-  gap: 3rem;
-  align-items: justify;
-  margin-top: 1rem;
+/* Profile section */
+.outer-container .profile {
+  display: flex;     /* Flex layout */
+  gap: 1rem;         /* Space between items */
+  align-items: center; /* Center vertically */
 }
 
-.active{
-  color:black !important;
-  background-color: #d4f6e8;
+/* Section title */
+.outer-container .title {
+  margin: 1rem 0;    /* Vertical margin */
+  text-transform: uppercase; /* Uppercase text */
 }
 
+/* Recipe details layout */
+.outer-container .recipe-details {
+  display: flex;     /* Flex layout */
+  gap: 3rem;         /* Large gap between columns */
+  align-items: justify; /* Justify content */
+  margin-top: 1rem;  /* Space above */
+}
 
+/* Active nav item */
+.active {
+  color: black !important; /* Force black text */
+  background-color: #d4f6e8; /* Light green background */
+}
+
+/* Focus states for accessibility */
+a:focus,
+button:focus {
+  outline: 2px solid #307bbd; /* Blue outline */
+  outline-offset: 2px;       /* Space from element */
+}
+
+/* Responsive Navigation */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block; /* Show menu toggle on mobile */
+  }
+
+  header ul {
+    flex-direction: column; /* Stack items vertically */
+    width: 100%;          /* Full width */
+    position: absolute;    /* Absolute positioning */
+    top: 60px;            /* Below header */
+    left: 0;
+    background-color: #ffffff; /* White background */
+    display: none;        /* Hidden by default */
+  }
+
+  header ul.active {
+    display: flex;        /* Show when active */
+  }
+}
